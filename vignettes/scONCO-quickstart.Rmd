@@ -1,0 +1,59 @@
+---
+title: "scONCO quick-start"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{scONCO quick-start}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+# scONCO — pan-cancer single-cell annotation
+
+`scONCO` annotates a pre-clustered Seurat object with a 4-level pan-cancer
+marker hierarchy, adds a v1.1 statistical-confidence layer, and (optionally)
+a CNV-aware malignant gate.
+
+## 1. Load the marker database
+
+```{r}
+library(scONCO)
+markers_df <- load_cancer_marker_db(version = "v1.0", organism = "human")
+# Lock to one cancer type (keeps shared TME):
+# markers_df <- load_cancer_marker_db(module = "melanoma")
+```
+
+## 2. Annotate
+
+```{r}
+seu <- run_scONCO(
+  seurat_obj       = seu,
+  markers_df       = markers_df,
+  cluster_col      = "seurat_clusters",
+  apply_confidence = TRUE
+)
+table(seu$scONCO_L4_Abb)
+```
+
+## 3. CNV-aware malignant gate (cancer layer)
+
+```{r}
+# Supply a precomputed CNV call (e.g. from CopyKAT / scATOMIC), or let the gate
+# run CopyKAT itself.
+seu <- run_scONCO(seu, markers_df,
+                  apply_confidence = TRUE,
+                  apply_cnv_gate   = TRUE,
+                  cnv_method = "precomputed", cnv_col = "copykat_call")
+table(seu$scONCO_malignant_call)
+```
+
+## 4. Outputs
+
+`run_scONCO()` writes `scONCO_L1` … `scONCO_L4_Abb`; with `apply_confidence`
+it adds `scONCO_L{k}_confidence` / `_status`, `conformal_set`,
+`conformal_set_size`; with `apply_cnv_gate` it adds `scONCO_malignant_call`,
+`scONCO_malignant_prob`, `scONCO_cnv_score`, `scONCO_L1_gated`,
+`scONCO_L4_gated`, `scONCO_gate_corrected`.
