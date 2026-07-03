@@ -41,12 +41,17 @@ load_cancer_marker_db <- function(version  = "v1.0",
 
   pkg_root  <- find.package("scONCO", quiet = TRUE)
   proj_root <- normalizePath(file.path(pkg_root, "..", ".."), mustWork = FALSE)
+  extdata   <- system.file("extdata", package = "scONCO")  # DB bundled inside the package
 
   if (identical(version, "v1.0")) {
     fname <- if (organism == "human") "DB_pancancer_human_v1.0.R" else "DB_pancancer_mouse_v1.0.R"
-    path  <- file.path(proj_root, "database", "current", fname)
+    path  <- file.path(extdata, "current", fname)                                    # 1) installed package
+    if (!file.exists(path))
+      path <- file.path(proj_root, "database", "current", fname)                     # 2) dev-mode fallback
   } else {
-    vers_dir <- file.path(proj_root, "database", "versions", version)
+    vers_dir <- file.path(extdata, "versions", version)                              # 1) installed package
+    if (!dir.exists(vers_dir))
+      vers_dir <- file.path(proj_root, "database", "versions", version)              # 2) dev-mode fallback
     if (!dir.exists(vers_dir))
       stop("Unknown DB version: ", version)
     files <- list.files(vers_dir, pattern = "\\.R$", full.names = TRUE)
