@@ -1,0 +1,71 @@
+Package: scONCO
+Title: Hierarchical, AI-Augmented Marker-Based Annotation for Cancer Single-Cell Transcriptomics
+Version: 1.1.0
+Date: 2026-05-26
+Authors@R: c(
+    person("Chia-Jung", "Chang",
+           email = "charlene.cj.chang@gmail.com",
+           role  = c("aut", "cre"),
+           comment = c(ORCID = "0000-0000-0000-0000")),
+    person("Yang-Hong", "Dai",
+           role  = c("aut"),
+           comment = "Radiation oncology / bioinformatics expert curator"),
+    person("National Cheng Kung University",
+           role  = c("cph"))
+  )
+Maintainer: Chia-Jung Chang <charlene.cj.chang@gmail.com>
+Description: scONCO is a cancer cell-type annotation framework for
+    single-cell RNA-seq data. It combines (i) a 4-level hierarchical
+    marker database co-curated by multiple large language models and a
+    clinical oncology expert (539 markers x 61 cell types, pan-cancer with
+    14 cancer-type modules), (ii) a
+    specificity-weighted hierarchical scoring algorithm extending scMRMA
+    (Li et al. 2022), and (iii) a statistical confidence layer providing
+    hierarchical reject option (de Lichtenberg et al. 2024), split conformal
+    prediction with marginal coverage guarantees (Boudaoud et al. 2025),
+    AUC-based marker specificity (Pullin and McCarthy 2024), and empirical
+    AI / literature support.
+License: MIT + file LICENSE
+URL: https://github.com/scONCO-tool/scONCO
+BugReports: https://github.com/scONCO-tool/scONCO/issues
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Depends:
+    R (>= 4.4.0)
+Imports:
+    Seurat (>= 5.0.0),
+    dplyr,
+    tibble,
+    tidyr,
+    stringr,
+    ggplot2,
+    methods,
+    Matrix,
+    stats,
+    utils
+Suggests:
+    scMRMA,
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown,
+    ComplexHeatmap,
+    pheatmap,
+    SingleR,
+    SummarizedExperiment,
+    SingleCellExperiment,
+    pROC,
+    easyPubMed
+Remotes:
+    JiaLiVUMC/scMRMA
+biocViews:
+    SingleCell,
+    Transcriptomics,
+    RNASeq,
+    Annotation,
+    Clustering,
+    Classification,
+    GeneExpression
+Config/testthat/edition: 3
+VignetteBuilder: knitr
