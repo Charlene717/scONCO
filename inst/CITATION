@@ -1,0 +1,30 @@
+citHeader("To cite scONCO in publications use:")
+
+bibentry(bibtype = "Article",
+  title        = "scONCO: a hierarchical, AI-augmented, statistically calibrated marker-based annotation framework for cancer single-cell transcriptomics",
+  author       = c(person("Chia-Jung", "Chang"),
+                   person("Yang-Hong", "Dai")),
+  journal      = "Nucleic Acids Research",
+  year         = "2027",
+  volume       = "[in preparation]",
+  url          = "https://github.com/scONCO-tool/scONCO",
+
+  textVersion  =
+    paste("Chang C-J., Dai Y-H., et al. (2027).",
+          "scONCO: a hierarchical, AI-augmented, statistically calibrated",
+          "marker-based annotation framework for cancer single-cell transcriptomics.",
+          "Nucleic Acids Research [in preparation].")
+)
+
+bibentry(bibtype = "Misc",
+  title    = "scONCO: an R package for cancer single-cell annotation",
+  author   = c(person("Chia-Jung", "Chang")),
+  year     = "2026",
+  note     = "R package version 1.1.0",
+  url      = "https://github.com/scONCO-tool/scONCO",
+
+  textVersion =
+    paste("Chang C-J. (2026). scONCO: an R package for cancer single-cell",
+          "annotation. R package version 1.1.0.",
+          "https://github.com/scONCO-tool/scONCO")
+)

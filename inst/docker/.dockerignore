@@ -1,0 +1,17 @@
+# Files NOT to copy into the Docker image
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+*.tar.gz
+docs/
+inst/doc/
+.git/
+.github/
+.lintr
+benchmarks/results/
+data/local/
+**/*.rds
+**/*.h5ad
+**/*.h5seurat
