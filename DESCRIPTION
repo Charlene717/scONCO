@@ -26,8 +26,8 @@ Description: scONCO is a cancer cell-type annotation framework for
     AUC-based marker specificity (Pullin and McCarthy 2024), and empirical
     AI / literature support.
 License: MIT + file LICENSE
-URL: https://github.com/YOUR-GITHUB-ACCOUNT/scONCO
-BugReports: https://github.com/YOUR-GITHUB-ACCOUNT/scONCO/issues
+URL: https://github.com/Charlene717/scONCO
+BugReports: https://github.com/Charlene717/scONCO/issues
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
