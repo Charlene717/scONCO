@@ -4,7 +4,7 @@ Version: 1.1.0
 Date: 2026-05-26
 Authors@R: c(
     person("Chia-Jung", "Chang",
-           email = "charlene.cj.chang@gmail.com",
+           email = "q2330416@gmail.com",
            role  = c("aut", "cre"),
            comment = c(ORCID = "0000-0000-0000-0000")),
     person("Yang-Hong", "Dai",
@@ -13,7 +13,7 @@ Authors@R: c(
     person("National Cheng Kung University",
            role  = c("cph"))
   )
-Maintainer: Chia-Jung Chang <charlene.cj.chang@gmail.com>
+Maintainer: Chia-Jung Chang <q2330416@gmail.com>
 Description: scONCO is a cancer cell-type annotation framework for
     single-cell RNA-seq data. It combines (i) a 4-level hierarchical
     marker database co-curated by multiple large language models and a
