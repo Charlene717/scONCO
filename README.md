@@ -145,11 +145,3 @@ MIT (provisional; final license to be confirmed by PI before public release).
 
 ---
 
-## Acknowledgements
-
-- Dr. Yang-Hong Dai (NCKU) — radiation oncology / bioinformatics co-curation.
-- Sharon — EPPK cohort sharing.
-- National Cheng Kung University.
-- Funded in part by NSTC Taiwan [grant ID].
-
-We thank the developers of [scMRMA](https://github.com/JiaLiVUMC/scMRMA), [Seurat](https://satijalab.org/seurat/), [SingleR](https://bioconductor.org/packages/SingleR/), and [scCATCH](https://github.com/ZJUFanLab/scCATCH) — scONCO stands on their shoulders.
