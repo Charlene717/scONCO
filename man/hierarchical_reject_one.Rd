@@ -6,6 +6,14 @@
 \usage{
 hierarchical_reject_one(probs, threshold)
 }
+\arguments{
+\item{probs}{Numeric vector of class probabilities for a single cell.}
+
+\item{threshold}{Numeric confidence threshold below which the call is deferred to the parent level.}
+}
+\value{
+A list with the retained label (or \code{NA} when deferred) and its confidence.
+}
 \description{
 Apply reject option to one cell (A.2 helper)
 }

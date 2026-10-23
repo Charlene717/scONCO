@@ -6,6 +6,12 @@
 \usage{
 map_to_canonical(x)
 }
+\arguments{
+\item{x}{Character vector of cell-type labels to map.}
+}
+\value{
+Character vector of canonical scONCO names.
+}
 \description{
 Map a cell type to its canonical scONCO name
 }

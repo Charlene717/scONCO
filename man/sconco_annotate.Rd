@@ -6,6 +6,14 @@
 \usage{
 sconco_annotate(score_matrix, hierarchy_table = NULL)
 }
+\arguments{
+\item{score_matrix}{Numeric matrix of activity scores (cells x cell types).}
+
+\item{hierarchy_table}{Optional data frame mapping fine cell types to their parent levels; when \code{NULL}, a flat argmax is taken.}
+}
+\value{
+Data frame of per-cell assignments with the winning score.
+}
 \description{
 Annotate cells directly from a score matrix
 }

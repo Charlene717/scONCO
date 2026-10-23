@@ -6,6 +6,18 @@
 \usage{
 compute_empirical_lit_support(genes, celltypes, max_hits = 1000, sleep = 0.34)
 }
+\arguments{
+\item{genes}{Character vector of marker gene symbols.}
+
+\item{celltypes}{Character vector of cell-type names, parallel to \code{genes}.}
+
+\item{max_hits}{Maximum PubMed hits to count per query, used to cap the log-normalisation. Default 1000.}
+
+\item{sleep}{Seconds to pause between PubMed queries, to respect NCBI rate limits. Default 0.34.}
+}
+\value{
+Numeric vector of literature-support scores in \verb{[0,1]}.
+}
 \description{
 Queries PubMed (via easyPubMed) for co-occurrence of marker + cell type;
 log-normalises to a 0–1 score.
