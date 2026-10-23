@@ -6,6 +6,16 @@
 \usage{
 plot_marker_dotplots(seurat_obj, markers_df, group_by = "scONCO_L4")
 }
+\arguments{
+\item{seurat_obj}{A Seurat object carrying scONCO annotations.}
+
+\item{markers_df}{Marker data frame supplying the genes to plot.}
+
+\item{group_by}{Meta.data column to group cells by. Default \code{"scONCO_L4"}.}
+}
+\value{
+A list of ggplot objects, one per cell type.
+}
 \description{
 Per-cell-type DotPlot panel
 }

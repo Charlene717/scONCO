@@ -12,6 +12,18 @@ plot_marker_bubble(
   color_high = "#EF4444"
 )
 }
+\arguments{
+\item{seurat_obj}{A Seurat object carrying scONCO annotations.}
+
+\item{markers_df}{Marker data frame supplying the genes to plot.}
+
+\item{group_by}{Meta.data column to group cells by. Default \code{"scONCO_L4"}.}
+
+\item{color_low, color_high}{Hex colours for the low and high ends of the expression scale.}
+}
+\value{
+A ggplot object.
+}
 \description{
 scONCO-style marker bubble plot
 }
