@@ -2,7 +2,7 @@
 % Please edit documentation in R/cancer_layer.R
 \name{compute_cnv_score}
 \alias{compute_cnv_score}
-\title{Compute a per-cell CNV (aneuploidy) score in \link{0,1}}
+\title{Compute a per-cell CNV (aneuploidy) score in \verb{[0,1]}}
 \usage{
 compute_cnv_score(seurat_obj, method = "precomputed", cnv_col = NULL, ...)
 }

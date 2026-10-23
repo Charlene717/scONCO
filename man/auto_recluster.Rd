@@ -10,6 +10,16 @@ auto_recluster(
   min_rogue = 0.85
 )
 }
+\arguments{
+\item{seurat_obj}{A Seurat object with a computed neighbour graph.}
+
+\item{resolutions}{Numeric vector of clustering resolutions to sweep. Default \code{seq(0.2, 1.6, by = 0.2)}.}
+
+\item{min_rogue}{Minimum ROGUE purity required to accept a resolution. Default 0.85.}
+}
+\value{
+Seurat object re-clustered at the selected resolution.
+}
 \description{
 Auto-reclustering by resolution gradient + ROGUE
 }

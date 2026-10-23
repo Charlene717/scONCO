@@ -10,6 +10,16 @@ calibrate_reject_thresholds(
   target_value = 0.1
 )
 }
+\arguments{
+\item{seurat_obj}{A Seurat object carrying per-level scONCO confidences.}
+
+\item{target}{Criterion to calibrate against: \code{"reject"} for a target reject rate, \code{"accuracy"} for an accuracy floor.}
+
+\item{target_value}{Numeric target for the chosen criterion. Default 0.1.}
+}
+\value{
+Named numeric vector of per-level thresholds.
+}
 \description{
 Choose threshold_k for each level by sweeping a grid on a held-out
 reference set to achieve a target reject rate or accuracy floor.
