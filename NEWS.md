@@ -4,6 +4,19 @@ Reverse-chronological changelog. Date format: YYYY-MM-DD.
 
 ---
 
+## v1.2.0 (2026-10-13)
+
+* New: `sconco()`, `sconco_study()`, `sconco_seurat()` and `sconco_reference_pool()` - the
+  method of the paper: hierarchical annotation with a copy-number split of the epithelial
+  lineage and a sample-level tumour test. Building blocks `sconco_hier()` and `sconco_cnv()`
+  are exported too.
+* New: marker database v3.3 (default) and v3.2 (the initial version) and Ensembl gene
+  positions in `inst/extdata`; `sconco_load_db()`, `sconco_load_gene_positions()`.
+* The code is generated from the project's `code/R/14-16` by `tools/sync_package.py`; the
+  computation is identical to the code the benchmarks and held-out tests ran.
+* `run_scONCO()` and the confidence layer (the earlier flat marker-scoring framework) are
+  unchanged and kept to reproduce the benchmark.
+
 ## v1.1.0 (2026-05-29, in development)
 
 ### New features
@@ -109,7 +122,7 @@ Initial public release of the scONCO framework.
 * Project README + `code/README.md` + `database/README.md` + `literature/README.md`.
 * `manuscript/scONCO_NSTC_Proposal_v3_EndNote.docx` — NSTC proposal (3-year program).
 * `manuscript/scONCO_Paper_Outline.docx` — initial NAR paper outline (superseded by v2 main + advanced in 2026-05-29).
-* `presentations/scONCO_Progress_PaperPlanning_v1.pptx` — 22-slide milestone deck.
+* `../02_簡報_Slides/scONCO_Progress_PaperPlanning_v1.pptx` — 22-slide milestone deck.
 
 ---
 

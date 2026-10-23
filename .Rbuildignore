@@ -10,3 +10,5 @@
 ^_pkgdown\.yml$
 ^pkgdown$
 ^\.lintr$
+^install\.R$
+^inst/docker/\.dockerignore$

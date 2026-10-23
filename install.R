@@ -71,7 +71,7 @@ if (!requireNamespace("scONCO", quietly = TRUE)) {
     remotes::install_local(".", upgrade = "never")
   } else {
     cat("  -> installing scONCO from GitHub ...\n")
-    remotes::install_github("scONCO-tool/scONCO", upgrade = "never")
+    remotes::install_github("Charlene717/scONCO", upgrade = "never")
   }
 } else {
   cat(sprintf("  v scONCO already installed (%s)\n",
