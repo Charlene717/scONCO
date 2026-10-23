@@ -10,6 +10,16 @@ merge_similar_numbered_celltypes_by_correlation(
   top_genes = 50
 )
 }
+\arguments{
+\item{seurat_obj}{A Seurat object with numbered cell-type clusters.}
+
+\item{threshold}{Spearman correlation above which two clusters are merged. Default 0.85.}
+
+\item{top_genes}{Number of top variable genes used to compute the correlation. Default 50.}
+}
+\value{
+Seurat object with merged cluster labels.
+}
 \description{
 Merge similar numbered cell-type clusters by Spearman correlation
 }

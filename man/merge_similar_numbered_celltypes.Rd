@@ -10,6 +10,16 @@ merge_similar_numbered_celltypes(
   jaccard_threshold = 0.8
 )
 }
+\arguments{
+\item{seurat_obj}{A Seurat object with numbered cell-type clusters.}
+
+\item{markers_df}{Marker data frame used to derive each cluster's top marker set.}
+
+\item{jaccard_threshold}{Jaccard index above which two clusters are merged. Default 0.8.}
+}
+\value{
+Seurat object with merged cluster labels.
+}
 \description{
 Merge similar numbered cell-type clusters by marker Jaccard
 }
