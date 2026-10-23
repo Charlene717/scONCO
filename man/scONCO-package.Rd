@@ -52,19 +52,41 @@ malignant call (the central malignant-vs-normal-origin problem).
 
 Chang C-J., Dai Y-H., et al. (2027). scONCO: a hierarchical, AI-augmented,
 statistically calibrated marker-based annotation framework for cancer
-single-cell transcriptomics. \emph{Nucleic Acids Research} \link{in preparation}.
+single-cell transcriptomics. \emph{Nucleic Acids Research} (in preparation).
+}
+
+\section{Imports}{
+
+The \verb{@importFrom} directives below are the single source of truth for the
+package NAMESPACE. They were moved here on 2026-09-14: the NAMESPACE file had
+been maintained by hand ("Manual draft for v1.1 skeleton") and carried 21
+\code{importFrom} entries that no roxygen tag reproduced, so the first
+\code{devtools::document()} run would silently have dropped every one of them.
+Add new imports here, not to NAMESPACE.
+
+\verb{R CMD check} reports a NOTE that \code{Matrix}, \code{ggplot2}, \code{methods}, \code{stringr}
+and \code{tibble} are declared in Imports but never imported from. This is an
+artefact of the skeleton-phase legacy bridge, not a stale declaration: the
+implementations that use them live in \verb{inst/legacy/R/} and are sourced at
+run time by \code{zzz_source_legacy.R}, so \verb{R CMD check} — which scans only \verb{R/} —
+cannot see the usage. Verified 2026-09-14: \code{Matrix::rowMeans}, \code{ggplot2::aes}
+and friends, \code{stringr::str_trim} and \code{tibble::tibble} are all called from the
+legacy modules, and \code{methods} is required for S4 slot access on Seurat
+objects (\code{seurat_obj@meta.data}). Do not remove them to silence the NOTE.
+\code{tidyr} genuinely was unused and was dropped from Imports on 2026-09-14.
+The NOTE resolves itself once the legacy modules are moved into \verb{R/}.
 }
 
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/Charlene717/scONCO}
-  \item Report bugs at \url{https://github.com/Charlene717/scONCO/issues}
+  \item \url{https://github.com/YOUR-GITHUB-ACCOUNT/scONCO}
+  \item Report bugs at \url{https://github.com/YOUR-GITHUB-ACCOUNT/scONCO/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: Chia-Jung Chang \email{q2330416@gmail.com} (\href{https://orcid.org/0000-0000-0000-0000}{ORCID})
+\strong{Maintainer}: Chia-Jung Chang \email{charlene.cj.chang@gmail.com} (\href{https://orcid.org/0000-0000-0000-0000}{ORCID})
 
 Authors:
 \itemize{

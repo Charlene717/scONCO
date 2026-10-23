@@ -10,6 +10,16 @@ refresh_marker_weights_empirical(
   lit_support_path = NULL
 )
 }
+\arguments{
+\item{markers_df}{Marker data frame whose \code{ai_support} / \code{lit_support} columns are to be replaced.}
+
+\item{ai_source_dbs}{Optional list of per-source marker databases used to recompute cross-LLM agreement.}
+
+\item{lit_support_path}{Optional path to cached literature-support scores, to avoid re-querying PubMed.}
+}
+\value{
+\code{markers_df} with refreshed support columns and recomputed \code{weight}.
+}
 \description{
 Replaces subjective ai_support / lit_support columns with empirically
 derived ones.

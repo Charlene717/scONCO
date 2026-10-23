@@ -6,6 +6,12 @@
 \usage{
 normalize_celltype(x)
 }
+\arguments{
+\item{x}{Character vector of free-text cell-type labels.}
+}
+\value{
+Character vector of normalised labels.
+}
 \description{
 Normalize a free-text cell type to scONCO canonical name
 }
