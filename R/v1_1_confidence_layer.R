@@ -68,6 +68,9 @@ compute_confidence <- function(score_matrix) {
 }
 
 #' Apply reject option to one cell (A.2 helper)
+#' @param probs Numeric vector of class probabilities for a single cell.
+#' @param threshold Numeric confidence threshold below which the call is deferred to the parent level.
+#' @return A list with the retained label (or `NA` when deferred) and its confidence.
 #' @export
 hierarchical_reject_one <- function(probs, threshold) {
   stop("Implementation provided by code/R/10_FUN_hierarchical_reject.R.")
@@ -95,6 +98,10 @@ apply_hierarchical_reject <- function(seurat_obj,
 #'
 #' Choose threshold_k for each level by sweeping a grid on a held-out
 #' reference set to achieve a target reject rate or accuracy floor.
+#' @param seurat_obj A Seurat object carrying per-level scONCO confidences.
+#' @param target Criterion to calibrate against: `"reject"` for a target reject rate, `"accuracy"` for an accuracy floor.
+#' @param target_value Numeric target for the chosen criterion. Default 0.1.
+#' @return Named numeric vector of per-level thresholds.
 #' @export
 calibrate_reject_thresholds <- function(seurat_obj, target = c("reject", "accuracy"),
                                          target_value = 0.1) {
@@ -166,6 +173,11 @@ compute_empirical_ai_support <- function(markers_long_df) {
 #'
 #' Queries PubMed (via easyPubMed) for co-occurrence of marker + cell type;
 #' log-normalises to a 0–1 score.
+#' @param genes Character vector of marker gene symbols.
+#' @param celltypes Character vector of cell-type names, parallel to `genes`.
+#' @param max_hits Maximum PubMed hits to count per query, used to cap the log-normalisation. Default 1000.
+#' @param sleep Seconds to pause between PubMed queries, to respect NCBI rate limits. Default 0.34.
+#' @return Numeric vector of literature-support scores in `[0,1]`.
 #' @export
 compute_empirical_lit_support <- function(genes, celltypes,
                                           max_hits = 1000, sleep = 0.34) {
@@ -176,6 +188,10 @@ compute_empirical_lit_support <- function(genes, celltypes,
 #'
 #' Replaces subjective ai_support / lit_support columns with empirically
 #' derived ones.
+#' @param markers_df Marker data frame whose `ai_support` / `lit_support` columns are to be replaced.
+#' @param ai_source_dbs Optional list of per-source marker databases used to recompute cross-LLM agreement.
+#' @param lit_support_path Optional path to cached literature-support scores, to avoid re-querying PubMed.
+#' @return `markers_df` with refreshed support columns and recomputed `weight`.
 #' @export
 refresh_marker_weights_empirical <- function(markers_df,
                                               ai_source_dbs = NULL,
