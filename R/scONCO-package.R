@@ -29,7 +29,35 @@
 #' @section Citation:
 #' Chang C-J., Dai Y-H., et al. (2027). scONCO: a hierarchical, AI-augmented,
 #' statistically calibrated marker-based annotation framework for cancer
-#' single-cell transcriptomics. *Nucleic Acids Research* [in preparation].
+#' single-cell transcriptomics. *Nucleic Acids Research* (in preparation).
+#'
+#' @section Imports:
+#' The `@importFrom` directives below are the single source of truth for the
+#' package NAMESPACE. They were moved here on 2026-09-14: the NAMESPACE file had
+#' been maintained by hand ("Manual draft for v1.1 skeleton") and carried 21
+#' `importFrom` entries that no roxygen tag reproduced, so the first
+#' `devtools::document()` run would silently have dropped every one of them.
+#' Add new imports here, not to NAMESPACE.
+#'
+#' `R CMD check` reports a NOTE that `Matrix`, `ggplot2`, `methods`, `stringr`
+#' and `tibble` are declared in Imports but never imported from. This is an
+#' artefact of the skeleton-phase legacy bridge, not a stale declaration: the
+#' implementations that use them live in `inst/legacy/R/` and are sourced at
+#' run time by `zzz_source_legacy.R`, so `R CMD check` — which scans only `R/` —
+#' cannot see the usage. Verified 2026-09-14: `Matrix::rowMeans`, `ggplot2::aes`
+#' and friends, `stringr::str_trim` and `tibble::tibble` are all called from the
+#' legacy modules, and `methods` is required for S4 slot access on Seurat
+#' objects (`seurat_obj@meta.data`). Do not remove them to silence the NOTE.
+#' `tidyr` genuinely was unused and was dropped from Imports on 2026-09-14.
+#' The NOTE resolves itself once the legacy modules are moved into `R/`.
+#'
+#' @importFrom Seurat AddMetaData FetchData FindClusters FindNeighbors
+#' @importFrom Seurat FindVariableFeatures GetAssayData NormalizeData
+#' @importFrom Seurat RunPCA RunUMAP ScaleData
+#' @importFrom dplyr %>% filter group_by mutate summarise
+#' @importFrom stats median quantile sd wilcox.test
+#' @importFrom stats na.omit setNames
+#' @importFrom utils head tail
 #'
 #' @docType package
 #' @name scONCO-package

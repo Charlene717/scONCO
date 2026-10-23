@@ -4,7 +4,7 @@
 #  via zzz_source_legacy.R until devtools::document() is run.)
 # =============================================================
 
-#' Compute a per-cell CNV (aneuploidy) score in [0,1]
+#' Compute a per-cell CNV (aneuploidy) score in `[0,1]`
 #'
 #' Obtains a genome-wide copy-number signal per cell, used by the malignant
 #' gate as the gold-standard malignancy cue. Either reads a precomputed CNV

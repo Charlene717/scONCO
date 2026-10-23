@@ -1,5 +1,5 @@
 # =============================================================
-# scONCO — legacy bridge during skeleton phase
+# scONCO - legacy bridge during skeleton phase
 # =============================================================
 # During the v1.1 skeleton phase, the canonical implementations
 # live in ../code/R/. This file sources them on package attach so
@@ -39,11 +39,13 @@
   }
   files <- list.files(d, pattern = "^[0-9]+_FUN_.*\\.R$",
                       full.names = TRUE)
+  # 14-16 (the method of the paper) are part of the package namespace since 1.2.0
+  files <- files[!grepl("^1[4-6]_FUN_", basename(files))]
   for (f in files) {
     tryCatch(
       source(f, local = topenv()),
       error = function(e) packageStartupMessage(
-        "scONCO: failed to source ", basename(f), " — ", conditionMessage(e)
+        "scONCO: failed to source ", basename(f), " - ", conditionMessage(e)
       )
     )
   }
