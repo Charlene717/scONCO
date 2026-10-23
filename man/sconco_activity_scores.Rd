@@ -6,6 +6,16 @@
 \usage{
 sconco_activity_scores(expr, markers_df, delta = 0.2)
 }
+\arguments{
+\item{expr}{Expression matrix (genes x cells), typically the normalised assay data.}
+
+\item{markers_df}{Marker data frame carrying a \code{weight} column (see \code{\link[=sconco_compute_marker_weights]{sconco_compute_marker_weights()}}).}
+
+\item{delta}{Numeric penalty applied to negative markers. Default 0.2.}
+}
+\value{
+Numeric matrix of activity scores (cells x cell types).
+}
 \description{
 score(cell, type) = sum_{g in M+(t)} weight(g) * expr(g, cell)
 - delta * sum_{g in M-(t)} expr(g, cell)
